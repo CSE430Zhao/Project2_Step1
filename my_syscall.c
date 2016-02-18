@@ -13,7 +13,7 @@
 #include <linux/uaccess.h>
 
 
-" 6982 ?        00:00:00 gnome-pty-helpe"
+//" 6982 ?        00:00:00 gnome-pty-helpe"
 
 
 asmlinkage long sys_my_syscall(void)
@@ -33,9 +33,12 @@ asmlinkage long sys_my_syscall(void)
 
     for_each_process(p){
 
-		cputime_t  = 0;
+		cputime_t utime = 0;
 		cputime_t stime = 0;
 
+        printk("%i ", p->pid);
+
+/*
     // add pid to buffer
         if (p->pid < 10)
             printk("    %i ", p->pid);
@@ -87,7 +90,8 @@ asmlinkage long sys_my_syscall(void)
                 printk(" ");
         }
 
-
+*/
     }
     // copy array to user space
+    return 0;
 }
